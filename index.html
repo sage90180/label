@@ -10,8 +10,35 @@
       integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
   </head>
+
+  <style>
+    @media print {
+      .labe-form {
+        display: none;
+      }
+
+      .label-design {
+        box-shadow: 0 0 0;
+      }
+
+      /* .print-content {
+        display: none;
+      }
+
+      .print-only {
+        display: block;
+        width: 500px;
+        height: 1000px;
+        border: solid 4px #000;
+      }
+
+      .hide-time {
+        display: none;
+      } */
+    }
+  </style>
 
   <body id="app">
     <div class="row p-3">
@@ -75,7 +102,7 @@
             </div>
             <div class="d-flex align-items-center mb-2">
               <label for="" class="me-2">Ship Date</label>
-              <input class="w-100" type="text" v-model="shipDate" />
+              <input class="w-100" type="date" v-model="shipDate" />
             </div>
             <div class="d-flex align-items-center mb-2">
               <label for="" class="me-2">Weight/kg</label>
@@ -134,7 +161,17 @@
             <input class="w-100" type="text" v-model="products[index].qty" />
           </div>
           <div class="col-1">
-            <input class="w-100" type="text" v-model="products[index].unit" />
+            <!-- <select name="" id="">
+              <option value=""></option>
+            </select> -->
+
+            <select v-model="products[index].unit">
+              <option selected>EA</option>
+              <option>B</option>
+              <option>C</option>
+            </select>
+
+            <!-- <input class="w-100" type="text" v-model="products[index].unit" /> -->
           </div>
         </div>
 
@@ -150,9 +187,12 @@
         <button class="btn btn-secondary" @click="captureDiv">
           儲存成圖片
         </button>
+        <button class="btn btn-warning float-end" @click="handlePrint">
+          列印標籤
+        </button>
       </div>
       <div class="col-5">
-        <div class="label-desigh" id="abel-desigh">
+        <div class="label-design" id="label-design">
           <div class="row label-top m-0">
             <div class="col-6 p-2">
               <div class="h-50">
@@ -259,11 +299,11 @@
           poNo: '',
           sku: '',
           qty: '',
-          unit: '',
+          unit: 'EA',
         },
-        { pos: '', origin: '', poNo: '', sku: '', qty: '', unit: '' },
-        { pos: '', origin: '', poNo: '', sku: '', qty: '', unit: '' },
-        { pos: '', origin: '', poNo: '', sku: '', qty: '', unit: '' },
+        { pos: '', origin: '', poNo: '', sku: '', qty: '', unit: 'EA' },
+        { pos: '', origin: '', poNo: '', sku: '', qty: '', unit: 'EA' },
+        { pos: '', origin: '', poNo: '', sku: '', qty: '', unit: 'EA' },
       ];
 
       createApp({
@@ -302,13 +342,13 @@
               fontSize: 16,
             });
 
-            $('#qrcode').qrcode({
+            $('#qrcode').empty('').qrcode({
               width: 80,
               height: 80,
               text: this.qrcode,
             });
 
-            html2canvas(document.getElementById('abel-desigh')).then(function (
+            html2canvas(document.getElementById('label-design')).then(function (
               canvas
             ) {
               var link = document.createElement('a');
@@ -331,6 +371,21 @@
             } else {
               alert('不能再少了');
             }
+          },
+          handlePrint() {
+            JsBarcode('#barcode', this.barcode, {
+              format: 'code128',
+              height: 60,
+              fontSize: 16,
+            });
+
+            $('#qrcode').empty('').qrcode({
+              width: 80,
+              height: 80,
+              text: this.qrcode,
+            });
+
+            window.print();
           },
         },
       }).mount('#app');

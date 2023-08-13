@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      /* 默认样式 */
+      .print-content {
+        display: block;
+      }
+
+      /* 打印样式 */
+      @media print {
+        .print-content {
+          display: none;
+        }
+
+        .print-only {
+          display: block;
+          width: 500px;
+          height: 1000px;
+          border: solid 4px #000;
+        }
+
+        .hide-time {
+          display: none;
+        }
+      }
+
+      /* .print-only {
+        display: none;
+        width: 500px;
+        height: 1000px;
+        border: solid 2px #000;
+      } */
+    </style>
+  </head>
+  <body>
+    <!-- <h1>网页内容</h1> -->
+
+    <p class="print-content">
+      这是要在屏幕上和打印时都显示的内容。
+      <button onclick="window.print()">打印页面</button>
+    </p>
+
+    <p class="print-only">这是只在打印时显示的内容。</p>
+
+    <p class="hide-time">时间信息</p>
+  </body>
+</html>
