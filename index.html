@@ -1,33 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Label 2.0</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="assets/css/main.css" />
-  </head>
 
-  <style>
-    @media print {
-      .labe-form {
-        display: none;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>10x15標籤</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
+  <link rel="stylesheet" href="assets/css/main10x8.css" />
+</head>
 
-      .label-design {
-        box-shadow: 0 0 0;
-      }
+<style>
+  @media print {
+    .labe-form {
+      display: none;
+    }
 
-      .row {
-        padding: 0 0 0 0 !important;
-      }
+    .label-design {
+      box-shadow: 0 0 0;
+    }
 
-      /* .print-content {
+    .row {
+      padding: 0 0 0 0 !important;
+    }
+
+    /* .print-content {
         display: none;
       }
 
@@ -41,358 +38,350 @@
       .hide-time {
         display: none;
       } */
-    }
-  </style>
+  }
+</style>
 
-  <body id="app">
-    <div class="row p-3">
-      <div class="col-7 labe-form">
-        <div class="row">
-          <div class="col-6">
-            <div class="d-flex mb-2">
-              <label for="" class="me-2"
-                >FROM<br />
-                <span class="sm-text">(Vendor Code)</span></label
-              >
-              <div class="w-100">
-                <input
-                  class="w-100 mb-2"
-                  type="text"
-                  placeholder="Vendor Code"
-                  v-model="fromCode"
-                />
-                <textarea
-                  class="w-100"
-                  id=""
-                  cols="30"
-                  rows="5"
-                  v-model="from"
-                ></textarea>
-              </div>
-            </div>
-            <div class="d-flex mb-2">
-              <label for="" class="me-2"
-                >TO<br /><span class="sm-text">(Customer Code)</span></label
-              >
-              <div class="w-100">
-                <input
-                  class="w-100 mb-2"
-                  type="text"
-                  placeholder="Customer Code"
-                  v-model="toCode"
-                />
-                <textarea
-                  class="w-100"
-                  id=""
-                  cols="30"
-                  rows="5"
-                  v-model="to"
-                ></textarea>
-              </div>
+<body id="app">
+  <div class="row p-3">
+    <div class="col-7 labe-form">
+      <div class="mb-3">
+        <a href="8x5.html" class="btn btn-danger">8x5標籤</a>
+        <a href="index.html" class="btn btn-success ms-2">10x15標籤</a>
+      </div>
+      <div class="alert alert-danger" role="alert">
+        <ul class="mb-md-0">
+          <li>列印設定：肖像模式</li>
+          <li>紙張大小： 4x6 吋</li>
+          <li>縮放：預設</li>
+        </ul>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <div class="d-flex mb-2">
+            <label for="" class="me-2">FROM<br />
+              <span class="sm-text">(Vendor Code)</span></label>
+            <div class="w-100">
+              <input class="w-100 mb-2" type="text" placeholder="Vendor Code" v-model="fromCode" />
+              <textarea class="w-100" id="" cols="30" rows="5" v-model="from"></textarea>
             </div>
           </div>
-          <div class="col-6">
-            <div class="d-flex align-items-center mb-2">
-              <label for="" class="me-2">Invoice No.</label>
-              <input class="w-100" type="text" v-model="invoiceNo" />
-            </div>
-            <div class="d-flex align-items-center mb-2">
-              <label for="" class="me-2">Forwarder</label>
-              <input class="w-100" type="text" v-model="forwarder" />
-            </div>
-            <div class="d-flex align-items-center mb-2">
-              <label for="" class="me-2">Payer Acct. No.</label>
-              <input class="w-100" type="text" v-model="payerAcctNo" />
-            </div>
-            <div class="d-flex align-items-center mb-2">
-              <label for="" class="me-2">Ship Date</label>
-              <input class="w-100" type="date" v-model="shipDate" />
-            </div>
-            <div class="d-flex align-items-center mb-2">
-              <label for="" class="me-2">Weight/kg</label>
-              <input class="w-100" type="text" v-model="weight" />
-            </div>
-            <div class="d-flex align-items-center mb-2">
-              <label for="" class="me-2">Dimension/cm</label>
-              <input class="w-100" type="text" v-model="dimension" />
-            </div>
-            <div class="d-flex mb-2">
-              <label for="" class="me-2">Customer PO No.</label>
-              <textarea
-                class="w-100"
-                id=""
-                cols="30"
-                rows="4"
-                v-model="customerPoNo"
-              ></textarea>
+          <div class="d-flex mb-2">
+            <label for="" class="me-2">TO<br /><span class="sm-text">(Customer Code)</span></label>
+            <div class="w-100">
+              <input class="w-100 mb-2" type="text" placeholder="Customer Code" v-model="toCode" />
+              <textarea class="w-100" id="" cols="30" rows="5" v-model="to"></textarea>
             </div>
           </div>
         </div>
-        <hr />
-
-        <button class="btn btn-primary" @click="handleAddField">
-          新增欄位
-        </button>
-        <button class="btn btn-danger float-end" @click="handleReduceField">
-          移除欄位
-        </button>
-        <div class="row align-items-center">
-          <div class="col-1">Pos.</div>
-          <div class="col-2">Origin</div>
-          <div class="col-3">PO No.</div>
-          <div class="col-4">SKU Item No. Product</div>
-          <div class="col-1">Qty.</div>
-          <div class="col-1">Unit</div>
+        <div class="col-6">
+          <div class="d-flex align-items-center mb-2">
+            <label for="" class="me-2">Invoice No.</label>
+            <input class="w-100" type="text" v-model="invoiceNo" />
+          </div>
+          <div class="d-flex align-items-center mb-2">
+            <label for="" class="me-2">Forwarder</label>
+            <input class="w-100" type="text" v-model="forwarder" />
+          </div>
+          <div class="d-flex align-items-center mb-2">
+            <label for="" class="me-2">Payer Acct. No.</label>
+            <input class="w-100" type="text" v-model="payerAcctNo" />
+          </div>
+          <div class="d-flex align-items-center mb-2">
+            <label for="" class="me-2">Ship Date</label>
+            <input class="w-100" type="date" v-model="shipDate" />
+          </div>
+          <div class="d-flex align-items-center mb-2">
+            <label for="" class="me-2">Weight/kg</label>
+            <input class="w-100" type="text" v-model="weight" />
+          </div>
+          <div class="d-flex align-items-center mb-2">
+            <label for="" class="me-2">Dimension/cm</label>
+            <input class="w-100" type="text" v-model="dimension" />
+          </div>
+          <div class="d-flex mb-2">
+            <label for="" class="me-2">Customer PO No.</label>
+            <textarea class="w-100" id="" cols="30" rows="4" v-model="customerPoNo"></textarea>
+          </div>
         </div>
-        <div class="row" v-for="(product,index) in productLengh">
-          <div class="col-1">{{index+1}}</div>
-          <div class="col-2">
-            <input class="w-100" type="text" v-model="products[index].origin" />
-          </div>
-          <div class="col-3">
-            <input class="w-100" type="text" v-model="products[index].poNo" />
-          </div>
-          <div class="col-4">
-            <textarea
-              class="w-100"
-              id=""
-              cols="30"
-              rows="3"
-              v-model="products[index].sku"
-            ></textarea>
-          </div>
-          <div class="col-1">
-            <input class="w-100" type="text" v-model="products[index].qty" />
-          </div>
-          <div class="col-1">
-            <!-- <select name="" id="">
+      </div>
+      <hr />
+
+      <button class="btn btn-primary" @click="handleAddField">
+        新增欄位
+      </button>
+      <button class="btn btn-danger float-end" @click="handleReduceField">
+        移除欄位
+      </button>
+      <div class="row align-items-center">
+        <div class="col-1">Pos.</div>
+        <div class="col-2">Origin</div>
+        <div class="col-3">PO No.</div>
+        <div class="col-4">SKU Item No. Product</div>
+        <div class="col-1">Qty.</div>
+        <div class="col-1">Unit</div>
+      </div>
+      <div class="row" v-for="(product,index) in productLengh">
+        <div class="col-1">{{index+1}}</div>
+        <div class="col-2">
+          <input class="w-100" type="text" v-model="products[index].origin" />
+        </div>
+        <div class="col-3">
+          <input class="w-100" type="text" v-model="products[index].poNo" />
+        </div>
+        <div class="col-4">
+          <textarea class="w-100" id="" cols="30" rows="3" v-model="products[index].sku"></textarea>
+        </div>
+        <div class="col-1">
+          <input class="w-100" type="text" v-model="products[index].qty" />
+        </div>
+        <div class="col-1">
+          <!-- <select name="" id="">
               <option value=""></option>
             </select> -->
 
-            <select v-model="products[index].unit">
-              <option selected>EA</option>
-              <option>B</option>
-              <option>C</option>
-            </select>
+          <select v-model="products[index].unit">
+            <option selected>EA</option>
+            <option>B</option>
+            <option>C</option>
+          </select>
 
-            <!-- <input class="w-100" type="text" v-model="products[index].unit" /> -->
-          </div>
+          <!-- <input class="w-100" type="text" v-model="products[index].unit" /> -->
         </div>
-
-        <hr />
-        <div class="d-flex align-items-center mb-2">
-          <label for="" class="me-2">barcode</label>
-          <input class="w-100" type="text" v-model="barcode" />
-        </div>
-        <div class="d-flex align-items-center mb-2">
-          <label for="" class="me-2">qrCode</label>
-          <input class="w-100" type="text" v-model="qrcode" />
-        </div>
-        <button class="btn btn-secondary" @click="captureDiv">
-          儲存成圖片
-        </button>
-        <button class="btn btn-warning float-end" @click="handlePrint">
-          列印標籤
-        </button>
       </div>
-      <div class="col-5">
-        <div class="label-design" id="label-design">
-          <div class="row label-top m-0">
-            <div class="col-6 p-2">
-              <div class="h-50">
-                <div>
-                  FROM<span class="sm-text px-2">(Vendor Code)</span
-                  ><b>{{fromCode}}</b>
-                </div>
-                <b class="d-block pt-1"> {{from}} </b>
-              </div>
-              <div class="h-50">
-                <div>
-                  To<span class="sm-text px-2">(Customer Code)</span
-                  ><b>{{toCode}}</b>
-                </div>
-                <b class="d-block pt-1"> {{to}} </b>
-              </div>
-            </div>
-            <div class="col-6 p-2">
-              <div class="mb-1">
-                <label class="me-2">Invoice No.</label><br />
-                <b>{{invoiceNo}}</b>
-              </div>
-              <div class="mb-1">
-                <label class="me-2">Forwarder</label>
-                <b>{{forwarder}}</b>
-              </div>
-              <div class="mb-1">
-                <label class="me-2">Payer Acct. No.</label>
-                <b>{{payerAcctNo}}</b>
-              </div>
-              <div class="mb-1">
-                <label class="me-2">Ship Date</label>
-                <b>{{shipDate}}</b>
-              </div>
-              <div class="mb-1">
-                <label class="me-2">Weight/kg</label>
-                <b>{{weight}}</b>
-              </div>
-              <div class="mb-1">
-                <label class="me-2">Dimension/cm</label>
-                <b>{{dimension}}</b>
-              </div>
-              <div class="mb-1">
-                <label class="me-2">Customer PO No.</label>
-                <b class="d-block mt-1">{{customerPoNo}}</b>
-              </div>
-            </div>
-          </div>
-          <div class="row align-items-center label-product__header m-0">
-            <div class="col-1">Pos.</div>
-            <div class="col-2">Origin</div>
-            <div class="col-3">PO No.</div>
-            <div class="col-4">SKU<br />Item No.<br />Product</div>
-            <div class="col-1">Qty.</div>
-            <div class="col-1">Unit</div>
-          </div>
-          <div class="label-product__main">
-            <div
-              class="row label-product m-0"
-              v-for="(product,index) in productLengh"
-            >
-              <div class="col-1">{{index+1}}</div>
-              <div class="col-2">{{products[index].origin}}</div>
-              <div class="col-3">{{products[index].poNo}}</div>
-              <div class="col-4 text-10">{{products[index].sku}}</div>
-              <div class="col-1">{{products[index].qty}}</div>
-              <div class="col-1">{{products[index].unit}}</div>
-            </div>
-          </div>
 
-          <div
-            class="label-barcode px-2 d-flex align-items-center justify-content-around"
-          >
-            <canvas id="barcode"></canvas>
-            <!-- <canvas class="barcode" jsbarcode-format="code128" jsbarcode-value="" jsbarcode-height="60"
+      <hr />
+      <div class="d-flex align-items-center mb-2">
+        <label for="" class="me-2">barcode</label>
+        <input class="w-100" type="text" v-model="barcode" />
+      </div>
+      <div class="d-flex align-items-center mb-2">
+        <label for="" class="me-2">qrCode</label>
+        <input class="w-100" type="text" v-model="qrcode" />
+      </div>
+      <button class="btn btn-secondary" @click="captureDiv">
+        儲存成圖片
+      </button>
+      <button class="btn btn-warning float-end" @click="handlePrint">
+        列印標籤
+      </button>
+    </div>
+    <div class="col-5">
+      <div class="label-design" id="label-design">
+        <div class="row label-top m-0">
+          <div class="col-6 p-2">
+            <div class="h-50">
+              <div>
+                FROM<span class="sm-text px-2">(Vendor Code)</span><b>{{fromCode}}</b>
+              </div>
+              <b class="d-block pt-1"> {{from}} </b>
+            </div>
+            <div class="h-50">
+              <div>
+                To<span class="sm-text px-2">(Customer Code)</span><b>{{toCode}}</b>
+              </div>
+              <b class="d-block pt-1"> {{to}} </b>
+            </div>
+          </div>
+          <div class="col-6 p-2">
+            <div class="mb-1">
+              <label class="me-2">Invoice No.</label><br />
+              <b>{{invoiceNo}}</b>
+            </div>
+            <div class="mb-1">
+              <label class="me-2">Forwarder</label>
+              <b>{{forwarder}}</b>
+            </div>
+            <div class="mb-1">
+              <label class="me-2">Payer Acct. No.</label>
+              <b>{{payerAcctNo}}</b>
+            </div>
+            <div class="mb-1">
+              <label class="me-2">Ship Date</label>
+              <b>{{shipDate}}</b>
+            </div>
+            <div class="mb-1">
+              <label class="me-2">Weight/kg</label>
+              <b>{{weight}}</b>
+            </div>
+            <div class="mb-1">
+              <label class="me-2">Dimension/cm</label>
+              <b>{{dimension}}</b>
+            </div>
+            <div class="mb-1">
+              <label class="me-2">Customer PO No.</label>
+              <b class="d-block mt-1">{{customerPoNo}}</b>
+            </div>
+          </div>
+        </div>
+        <div class="row align-items-center label-product__header m-0">
+          <div class="col-1">Pos.</div>
+          <div class="col-2">Origin</div>
+          <div class="col-3">PO No.</div>
+          <div class="col-4">SKU<br />Item No.<br />Product</div>
+          <div class="col-1">Qty.</div>
+          <div class="col-1">Unit</div>
+        </div>
+        <div class="label-product__main">
+          <div class="row label-product m-0" v-for="(product,index) in productLengh">
+            <div class="col-1">{{index+1}}</div>
+            <div class="col-2">{{products[index].origin}}</div>
+            <div class="col-3">{{products[index].poNo}}</div>
+            <div class="col-4 text-10">{{products[index].sku}}</div>
+            <div class="col-1">{{products[index].qty}}</div>
+            <div class="col-1">{{products[index].unit}}</div>
+          </div>
+        </div>
+
+        <div class="label-barcode px-2 d-flex align-items-center justify-content-around">
+          <canvas id="barcode"></canvas>
+          <!-- <canvas class="barcode" jsbarcode-format="code128" jsbarcode-value="" jsbarcode-height="60"
             jsbarcode-fontSize="16">
           </canvas> -->
-            <div id="qrcode"></div>
-          </div>
+          <div id="qrcode"></div>
         </div>
       </div>
     </div>
+  </div>
 
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-      crossorigin="anonymous"
-    ></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
+  </script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
 
-    <script src="js/JsBarcode.all.min.js"></script>
-    <script src="js/jquery.qrcode.min.js"></script>
-    <script>
-      const { createApp, ref } = Vue;
+  <script src="js/JsBarcode.all.min.js"></script>
+  <script src="js/jquery.qrcode.min.js"></script>
+  <script>
+    const {
+      createApp,
+      ref
+    } = Vue;
 
-      var products = [
-        {
-          pos: '',
-          origin: '',
-          poNo: '',
-          sku: '',
-          qty: '',
-          unit: 'EA',
-        },
-        { pos: '', origin: '', poNo: '', sku: '', qty: '', unit: 'EA' },
-        { pos: '', origin: '', poNo: '', sku: '', qty: '', unit: 'EA' },
-        { pos: '', origin: '', poNo: '', sku: '', qty: '', unit: 'EA' },
-      ];
+    var products = [{
+        pos: '',
+        origin: '',
+        poNo: '',
+        sku: '',
+        qty: '',
+        unit: 'EA',
+      },
+      {
+        pos: '',
+        origin: '',
+        poNo: '',
+        sku: '',
+        qty: '',
+        unit: 'EA'
+      },
+      {
+        pos: '',
+        origin: '',
+        poNo: '',
+        sku: '',
+        qty: '',
+        unit: 'EA'
+      },
+      {
+        pos: '',
+        origin: '',
+        poNo: '',
+        sku: '',
+        qty: '',
+        unit: 'EA'
+      },
+    ];
 
-      createApp({
-        data() {
-          return {
-            productLengh: 1,
-            products,
-            fromCode: '',
-            from: '',
-            toCode: '',
-            to: '',
-            invoiceNo: '',
-            forwarder: '',
-            payerAcctNo: '',
-            barcode: '12334234',
-            shipDate: '',
-            weight: '',
-            dimension: '',
-            customerPoNo: '',
-            barcode: '112233',
-            qrcode: 'http://www.plastlist.com/',
-          };
-        },
-        mounted() {
-          JsBarcode('#barcode', null, {
+    createApp({
+      data() {
+        return {
+          productLengh: 1,
+          products,
+          fromCode: '',
+          from: '',
+          toCode: '',
+          to: '',
+          invoiceNo: '',
+          forwarder: '',
+          payerAcctNo: '',
+          barcode: '12334234',
+          shipDate: '',
+          weight: '',
+          dimension: '',
+          customerPoNo: '',
+          qrcode: 'http://www.plastlist.com/',
+        };
+      },
+      mounted() {
+        JsBarcode('#barcode', null, {
+          format: 'code128',
+          height: 60,
+          fontSize: 16,
+        });
+        $('#qrcode').empty('').qrcode({
+          width: 80,
+          height: 80,
+          text: this.qrcode,
+        });
+      },
+      methods: {
+        captureDiv() {
+          JsBarcode('#barcode', this.barcode, {
             format: 'code128',
             height: 60,
             fontSize: 16,
           });
+
+          $('#qrcode').empty('').qrcode({
+            width: 80,
+            height: 80,
+            text: this.qrcode,
+          });
+
+          html2canvas(document.getElementById('label-design')).then(function (
+            canvas
+          ) {
+            var link = document.createElement('a');
+            link.href = canvas.toDataURL();
+            link.download = 'label.png';
+            link.click();
+          });
         },
-        methods: {
-          captureDiv() {
-            JsBarcode('#barcode', this.barcode, {
-              format: 'code128',
-              height: 60,
-              fontSize: 16,
-            });
-
-            $('#qrcode').empty('').qrcode({
-              width: 80,
-              height: 80,
-              text: this.qrcode,
-            });
-
-            html2canvas(document.getElementById('label-design')).then(function (
-              canvas
-            ) {
-              var link = document.createElement('a');
-              link.href = canvas.toDataURL();
-              link.download = 'label.png';
-              link.click();
-            });
-          },
-          handleAddField() {
-            if (this.productLengh < 4) {
-              this.productLengh++;
-            } else {
-              this.productLengh == 4;
-              alert('太多產品');
-            }
-          },
-          handleReduceField() {
-            if (this.productLengh <= 4 && this.productLengh > 0) {
-              this.productLengh--;
-            } else {
-              alert('不能再少了');
-            }
-          },
-          handlePrint() {
-            JsBarcode('#barcode', this.barcode, {
-              format: 'code128',
-              height: 60,
-              fontSize: 16,
-            });
-
-            $('#qrcode').empty('').qrcode({
-              width: 80,
-              height: 80,
-              text: this.qrcode,
-            });
-
-            window.print();
-          },
+        handleAddField() {
+          if (this.productLengh < 4) {
+            this.productLengh++;
+          } else {
+            this.productLengh == 4;
+            alert('太多產品');
+          }
         },
-      }).mount('#app');
-    </script>
-  </body>
+        handleReduceField() {
+          if (this.productLengh <= 4 && this.productLengh > 0) {
+            this.productLengh--;
+          } else {
+            alert('不能再少了');
+          }
+        },
+        handlePrint() {
+          JsBarcode('#barcode', this.barcode, {
+            format: 'code128',
+            height: 60,
+            fontSize: 16,
+          });
+
+          $('#qrcode').empty('').qrcode({
+            width: 80,
+            height: 80,
+            text: this.qrcode,
+          });
+
+          window.print();
+        },
+      },
+    }).mount('#app');
+  </script>
+</body>
+
 </html>

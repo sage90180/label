@@ -1,4 +1,4 @@
-.label-desigh {
+.label-design {
   width: 500px;
   height: 750px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
@@ -22,6 +22,7 @@
   line-height: 13px;
   padding: 5px;
 }
+
 .label-product__header > div {
   padding-left: 5px !important;
   padding-right: 5px !important;
@@ -30,6 +31,7 @@
 .label-product:nth-child(even) {
   border: solid 1px #000;
 }
+
 .label-product:nth-child(even) > div ~ div {
   border-left: solid 1px #000;
 }
@@ -42,11 +44,13 @@
   min-height: 63px;
   max-height: 63px;
 }
+
 .label-product > div {
   padding-left: 5px !important;
   padding-right: 5px !important;
   overflow: hidden;
 }
+
 .label-product__main {
   height: 260px;
   border-bottom: solid 2px #000;
@@ -65,4 +69,4 @@
 .text-10 {
   font-size: 14px;
   line-height: 14px;
-}/*# sourceMappingURL=main.css.map */
+}

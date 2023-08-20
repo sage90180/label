@@ -1,0 +1,28 @@
+.label-design {
+  width: 560px;
+  height: 350px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  background: #fff;
+  overflow: hidden;
+  border-radius: 8px;
+  position: relative;
+}
+
+.right-info {
+  height: 60%;
+}
+
+.logo {
+  max-width: 180px;
+}
+
+.label {
+  font-size: 15px;
+}
+
+.info {
+  display: block;
+  line-height: 18px;
+  padding: 3px 0px;
+  width: 100%;
+}

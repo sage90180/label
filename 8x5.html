@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>10x8標籤</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
+  <link rel="stylesheet" href="assets/css/main8x5.css" />
+</head>
+
+<style>
+  @media print {
+    .labe-form {
+      display: none;
+    }
+
+    .label-design {
+      box-shadow: 0 0 0;
+    }
+
+    .row {
+      padding: 0 0 0 0 !important;
+    }
+
+
+  }
+</style>
+
+<body id="app">
+  <div class="row p-3">
+    <div class="col-7 labe-form">
+      <div class="mb-3">
+        <a href="8x5.html" class="btn btn-danger">8x5標籤</a>
+        <a href="index.html" class="btn btn-success ms-2">10x15標籤</a>
+      </div>
+      <div class="alert alert-danger" role="alert">
+        <ul class="mb-md-0">
+          <li>列印設定： 橫向</li>
+          <li>紙張大小：3.25 x 2 吋</li>
+          <li>縮放：自訂 55</li>
+        </ul>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <div class="d-flex align-items-center mb-2">
+            <label for="" class="me-2">Customer</label>
+            <input class="w-100" type="text" v-model="customer" />
+          </div>
+          <div class="d-flex mb-2">
+            <label for="" class="me-2">Requester/Buyer<br /></label>
+            <textarea class="w-100" id="" cols="30" rows="2" v-model="requester"></textarea>
+          </div>
+          <div class="d-flex mb-2">
+            <label for="" class="me-2">Material Group/Item No./Product<br /></label>
+            <textarea class="w-100" id="" cols="30" rows="5" v-model="material"></textarea>
+          </div>
+          <div class="d-flex align-items-center mb-2">
+            <label for="" class="me-2 text-nowrap">Qty./Unit</label>
+            <input class="w-100" type="text" v-model="qty" />
+          </div>
+          <div class="d-flex align-items-center mb-2">
+            <label for="" class="me-2">ManuFacturer Part No./SKU</label>
+            <input class="w-100" type="text" v-model="manuFacturer" />
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="d-flex align-items-center mb-2">
+            <label for="" class="me-2 text-nowrap">Invoice No.</label>
+            <input class="w-100" type="text" v-model="invoiceNo" />
+          </div>
+          <div class="d-flex align-items-center mb-2">
+            <label for="" class="me-2 text-nowrap">Po No.</label>
+            <textarea class="w-100" id="" cols="30" rows="4" v-model="poNo"></textarea>
+          </div>
+          <hr>
+          <div class="d-flex align-items-center mb-2">
+            <label for="" class="me-2">barcode</label>
+            <input class="w-100" type="text" v-model="barcode" />
+          </div>
+          <div class="d-flex align-items-center mb-2">
+            <label for="" class="me-2">qrCode</label>
+            <input class="w-100" type="text" v-model="qrcode" />
+          </div>
+
+        </div>
+      </div>
+      <hr />
+      <button class="btn btn-secondary" @click="captureDiv">
+        儲存成圖片
+      </button>
+      <button class="btn btn-warning float-end" @click="handlePrint">
+        列印標籤
+      </button>
+    </div>
+    <div class="col-5">
+      <div class="label-design" id="label-design">
+        <div class="row m-0">
+          <div class="col-6 pt-2 p-2 position-relative">
+            <div style="position: absolute; top: 5px">
+              <div class="label">Customer</div>
+              <b>{{customer}}</b>
+            </div>
+            <div style="position: absolute; top: 50px">
+              <div class="label">Requester/Buyer</div>
+              <b class="info">{{requester}}</b>
+            </div>
+            <div style="position: absolute; top: 115px">
+              <div class="label">Material Group/Item No./Product</div>
+              <b class="info">{{material}}</b>
+            </div>
+            <div style="position: absolute; top: 255px">
+              <div class="label">Qty./Unit</div>
+              <b class="info">{{qty}}</b>
+            </div>
+            <div style="position: absolute; top: 300px">
+              <div class="label">ManuFacturer Part No./SKU</div>
+              <b class="info">{{manuFacturer}}</b>
+            </div>
+          </div>
+          <div class="col-6 p-1">
+            <div class="right-info">
+              <div style="position: absolute; top: 10px">
+                <div class="label">Invoice No.</div>
+                <b class="info">{{invoiceNo}}</b>
+              </div>
+              <div style="position: absolute; top: 60px; ">
+                <div class="label">PO No.:</div>
+                <b class="info">{{poNo}}</b>
+              </div>
+            </div>
+            <div style="position: absolute; top: 170px">
+              <canvas class="mb-1" id="barcode"></canvas>
+              <div class="d-flex">
+                <div id="qrcode"></div>
+                <img class="logo ms-3" src="images/logo.svg" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="row label-top m-0">
+            <div class="col-6 p-2">
+              <div class="h-50">
+                <div>
+                  FROM<span class="sm-text px-2">(Vendor Code)</span
+                  ><b>{{fromCode}}</b>
+                </div>
+                <b class="d-block pt-1"> {{from}} </b>
+              </div>
+              <div class="h-50">
+                <div>
+                  To<span class="sm-text px-2">(Customer Code)</span
+                  ><b>{{toCode}}</b>
+                </div>
+                <b class="d-block pt-1"> {{to}} </b>
+              </div>
+            </div>
+            <div class="col-6 p-2">
+              <div class="mb-1">
+                <label class="me-2">Invoice No.</label><br />
+                <b>{{invoiceNo}}</b>
+              </div>
+              <div class="mb-1">
+                <label class="me-2">Forwarder</label>
+                <b>{{forwarder}}</b>
+              </div>
+              <div class="mb-1">
+                <label class="me-2">Payer Acct. No.</label>
+                <b>{{payerAcctNo}}</b>
+              </div>
+              <div class="mb-1">
+                <label class="me-2">Ship Date</label>
+                <b>{{shipDate}}</b>
+              </div>
+              <div class="mb-1">
+                <label class="me-2">Weight/kg</label>
+                <b>{{weight}}</b>
+              </div>
+              <div class="mb-1">
+                <label class="me-2">Dimension/cm</label>
+                <b>{{dimension}}</b>
+              </div>
+              <div class="mb-1">
+                <label class="me-2">Customer PO No.</label>
+                <b class="d-block mt-1">{{customerPoNo}}</b>
+              </div>
+            </div>
+          </div>
+          <div class="row align-items-center label-product__header m-0">
+            <div class="col-1">Pos.</div>
+            <div class="col-2">Origin</div>
+            <div class="col-3">PO No.</div>
+            <div class="col-4">SKU<br />Item No.<br />Product</div>
+            <div class="col-1">Qty.</div>
+            <div class="col-1">Unit</div>
+          </div>
+          <div class="label-product__main">
+            <div
+              class="row label-product m-0"
+              v-for="(product,index) in productLengh"
+            >
+              <div class="col-1">{{index+1}}</div>
+              <div class="col-2">{{products[index].origin}}</div>
+              <div class="col-3">{{products[index].poNo}}</div>
+              <div class="col-4 text-10">{{products[index].sku}}</div>
+              <div class="col-1">{{products[index].qty}}</div>
+              <div class="col-1">{{products[index].unit}}</div>
+            </div>
+          </div> -->
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+
+  <script src="js/JsBarcode.all.min.js"></script>
+  <script src="js/jquery.qrcode.min.js"></script>
+  <script>
+    const {
+      createApp,
+      ref
+    } = Vue;
+
+    createApp({
+      data() {
+        return {
+          customer: '',
+          requester: '',
+          material: '',
+          product: '',
+          qty: '',
+          manuFacturer: '',
+          invoiceNo: '',
+          poNo: '',
+          barcode: '123456789012',
+          qrcode: 'http://www.plastlist.com/',
+        };
+      },
+      mounted() {
+        JsBarcode('#barcode', '123456789012', {
+          format: 'upc',
+          height: 60,
+          fontSize: 16,
+        });
+        $('#qrcode').empty('').qrcode({
+          width: 60,
+          height: 60,
+          text: this.qrcode,
+        });
+      },
+      methods: {
+        captureDiv() {
+          JsBarcode('#barcode', this.barcode, {
+            format: 'upc',
+            height: 60,
+            fontSize: 16,
+          });
+
+          $('#qrcode').empty('').qrcode({
+            width: 60,
+            height: 60,
+            text: this.qrcode,
+          });
+
+          html2canvas(document.getElementById('label-design')).then(function (
+            canvas
+          ) {
+            var link = document.createElement('a');
+            link.href = canvas.toDataURL();
+            link.download = 'label.png';
+            link.click();
+          });
+        },
+        handleAddField() {
+          if (this.productLengh < 4) {
+            this.productLengh++;
+          } else {
+            this.productLengh == 4;
+            alert('太多產品');
+          }
+        },
+        handleReduceField() {
+          if (this.productLengh <= 4 && this.productLengh > 0) {
+            this.productLengh--;
+          } else {
+            alert('不能再少了');
+          }
+        },
+        handlePrint() {
+          JsBarcode('#barcode', this.barcode, {
+            format: 'upc',
+            height: 60,
+            fontSize: 16,
+          });
+
+          $('#qrcode').empty('').qrcode({
+            width: 60,
+            height: 60,
+            text: this.qrcode,
+          });
+
+          window.print();
+        },
+      },
+    }).mount('#app');
+  </script>
+</body>
+
+</html>
